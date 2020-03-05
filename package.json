@@ -1,12 +1,14 @@
 {
-  "name": "swic-starter",
+  "name": "multiplayer-maps",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "serve": "browser-sync start --server --files '*.html, *.css, *.js'"
   },
-  "keywords": ["js"],
+  "keywords": [
+    "js"
+  ],
   "author": "Taylor Wood",
   "license": "ISC",
   "devDependencies": {
