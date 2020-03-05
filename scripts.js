@@ -6,4 +6,13 @@ const gameDetails = [
   { map: ["Countdown", "Zealot", "Forge World"] }
 ];
 
-/* Index data is subject to change. Preferably, a user would be able to select from a multitude of games and have gameData show in response to 'game', 'playlist', 'mode' and 'map' selected. The data is dependent on these selections. So, for simplicity's sake, and the sake of current JS knowledge, we will define the 'game' and 'playlist' selection one value each.*/
+// Question 1
+// Alert user of limited selections
+let gameAlert = alert(
+  "The only game available is 'Halo Reach.' Please enter 'Halo Reach'"
+);
+let gameQuestion = String(prompt("What game are you playing?"));
+while (!gameQuestion || gameQuestion !== gameDetails[0].game) {
+  gameAlert = alert("Please enter 'Halo Reach'");
+  gameQuestion = String(prompt("What game are you playing?"));
+}
