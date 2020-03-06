@@ -18,7 +18,7 @@ while (!gameQuestion || gameQuestion !== gameDetails[0].game) {
 }
 
 // Reward Proper Response
-alert("Halo Reach was selected!");
+alert(`${gameQuestion} was selected!`);
 
 // Question 2
 // Alert user of limited selection
@@ -34,34 +34,38 @@ while (!playlistQuestion || playlistQuestion !== gameDetails[1].playlist) {
 }
 
 // Reward Proper Response
-alert("Team Hardcore was selected!");
+alert(`${playlistQuestion} was selected!`);
 
 // Question 3
 // Alert user of limited selections
 alert(
   "Game modes available include: Team Slayer, Capture the Flag, and King of the Hill."
 );
-​
+
 let modeQuestion = String(prompt("Which game mode are you playing?"));
+
 // Assume the worst.
 let badModeQuestionValue = true;
-​
-// Enter loop no matter what, at first.
+
+let i = 0;
 while (!modeQuestion || badModeQuestionValue) {
-  for (let i = 0; modeQuestion = gameDetails[2].mode[i]; i++) {
+  for (i = 0; i <= gameDetails[2].mode.length - 1; i++) {
     if (modeQuestion === gameDetails[2].mode[i]) {
-      badModeQuestionValue;
-    }
-    else{
-      alert("Please enter one of the following: Team Slayer, Capture the Flag, or King of the Hill.");
-      modeQuestion = String(prompt("Which game mode are you playing?"));
+      badModeQuestionValue = false;
+      break;
+    } else {
+      badModeQuestionValue = true;
     }
   }
-  // TODO{Taylor.Wood}: Run 🏃🏽‍♂️'for' loop to check if 'modeQuestion' matches any value.
-  // If it does, toggle 'badModeQuestionValue' so that we can exit the loop.
-​
-  // TODO{Taylor.Wood}: Use 'if' to 'break' the loop and/or avoid asking unnecessarily...
-  // 'else' ask again and re-assign.
-  // From here, it should go back up to re-check the conditions for the 'while.'
-  // modeQuestion = String(prompt("Which game mode are you playing?"));
+  if (i >= gameDetails[2].mode.length) {
+    alert(
+      "Please enter one of the following: Team Slayer, Capture the Flag, or King of the Hill."
+    );
+    modeQuestion = String(prompt("Which game mode are you playing?"));
+    i = 0;
+    badModeQuestionValue = true;
+  }
 }
+
+// Reward Proper Response
+alert(`${modeQuestion} was selected!`);
