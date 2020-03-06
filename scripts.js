@@ -69,3 +69,33 @@ while (!modeQuestion || badModeQuestionValue) {
 
 // Reward Proper Response
 alert(`${modeQuestion} was selected!`);
+
+// Question 4
+// Alert user of limited selections
+alert("Game maps available include: Countdown, Zealot, and Forge World.");
+
+let mapQuestion = String(prompt("Which game map are you playing?"));
+
+// Assume the worst.
+let badMapQuestionValue = true;
+
+let x = 0;
+while (!mapQuestion || badMapQuestionValue) {
+  for (x = 0; x <= gameDetails[3].map.length - 1; x++) {
+    if (mapQuestion === gameDetails[3].map[x]) {
+      badMapQuestionValue = false;
+      break;
+    } else {
+      badMapQuestionValue = true;
+    }
+  }
+  if (x >= gameDetails[3].map.length) {
+    alert("Game maps available include: Countdown, Zealot, and Forge World.");
+    mapQuestion = String(prompt("Which game map are you playing?"));
+    x = 0;
+    badMapQuestionValue = true;
+  }
+}
+
+// Reward Proper Response
+alert(`${mapQuestion} was selected!`);
