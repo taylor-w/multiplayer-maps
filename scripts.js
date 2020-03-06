@@ -8,45 +8,60 @@ const gameDetails = [
 
 // Question 1
 // Alert user of limited selections
-let gameAlert = alert(
-  "The only game available is 'Halo Reach.' Please enter 'Halo Reach'."
-);
+alert("The only game available is 'Halo Reach.' Please enter 'Halo Reach'.");
+
 let gameQuestion = String(prompt("What game are you playing?"));
+
 while (!gameQuestion || gameQuestion !== gameDetails[0].game) {
-  gameAlert = alert("Please enter 'Halo Reach'");
+  alert("Please enter 'Halo Reach'");
   gameQuestion = String(prompt("What game are you playing?"));
 }
+
 // Reward Proper Response
-let confirmation = alert(`${gameQuestion} was selected!`);
+alert("Halo Reach was selected!");
 
 // Question 2
 // Alert user of limited selection
-let playlistAlert = alert(
+alert(
   "The only playlist available is 'Team Hardcore'. Please enter 'Team Hardcore'."
 );
+
 let playlistQuestion = String(prompt("What playlist are you playing?"));
+
 while (!playlistQuestion || playlistQuestion !== gameDetails[1].playlist) {
-  playlistAlert = alert("Please enter 'Team Hardcore'");
+  alert("Please enter 'Team Hardcore'");
   playlistQuestion = String(prompt("What playlist are you playing?"));
 }
+
 // Reward Proper Response
-confirmation = alert(`${playlistQuestion} was selected!`);
+alert("Team Hardcore was selected!");
 
 // Question 3
 // Alert user of limited selections
-let modeAlert = alert(
+alert(
   "Game modes available include: Team Slayer, Capture the Flag, and King of the Hill."
 );
+​
 let modeQuestion = String(prompt("Which game mode are you playing?"));
-for (let counter = 0; counter <= gameDetails[2].mode.length - 1; counter++) {
-  let index = 0;
-  while (!modeQuestion || modeQuestion !== gameDetails[2].mode[index]) {
-    // modeAlert = alert(
-    //   "Please pick one of the following: Team Slayer, Capture the Flag, or King of the Hill"
-    // );
-    modeQuestion = String(prompt("Which game mode are you playing?"));
-    index++;
+// Assume the worst.
+let badModeQuestionValue = true;
+​
+// Enter loop no matter what, at first.
+while (!modeQuestion || badModeQuestionValue) {
+  for (let i = 0; modeQuestion = gameDetails[2].mode[i]; i++) {
+    if (modeQuestion === gameDetails[2].mode[i]) {
+      badModeQuestionValue;
+    }
+    else{
+      alert("Please enter one of the following: Team Slayer, Capture the Flag, or King of the Hill.");
+      modeQuestion = String(prompt("Which game mode are you playing?"));
+    }
   }
+  // TODO{Taylor.Wood}: Run 🏃🏽‍♂️'for' loop to check if 'modeQuestion' matches any value.
+  // If it does, toggle 'badModeQuestionValue' so that we can exit the loop.
+​
+  // TODO{Taylor.Wood}: Use 'if' to 'break' the loop and/or avoid asking unnecessarily...
+  // 'else' ask again and re-assign.
+  // From here, it should go back up to re-check the conditions for the 'while.'
+  // modeQuestion = String(prompt("Which game mode are you playing?"));
 }
-// Reward Proper Response
-confirmation = alert(`${modeQuestion} was selected!`);
